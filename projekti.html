@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>Loren Bažon - Portfolio</title>
+
+    <meta property="og:title" content="Loren Bažon - Projekti - Portfolio">
+    <meta property="og:description" content="Dobrodošli na portfolio - Projekti - Loren Bažon">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="URL_stranice">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Služeni portfolio - Projekti - Loren Bažon">
+    <meta name="keywords" content="Loren, Bažon, web, site, portfolio, website,projekti">
+    <meta name="author" content="Loren Bažon">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="icon" type="image/png" href="ico.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+          background-color: #000000;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+        }
+        .bij {
+          color: white;
+        }
+        .kontejnersivi {
+          background-color: #000000;
+        }
+        .container1 {
+          position: relative;
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+        }
+        .navbar .nav a:after {
+          content: "";
+          position: absolute;
+          background-color: aliceblue;
+          height: 3px;
+          width:0;
+          left:0;
+          bottom: -10px;
+          transition: 0.3s;
+          display: block;
+        }
+        .navbar .nav a:hover:after {
+          width:100%;
+        }
+        a:hover{
+          color: rgb(255, 255, 255);
+        }
+        a{
+          position: relative;
+          text-decoration: none;
+          color: rgb(26, 255, 0);
+          letter-spacing: 0.5px;
+          padding: 2 2px;
+        }
+        .nav {
+          position: relative;
+        }
+        .nav::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 3px;
+          background-color: #4aff02;
+          transition: width 0.3s ease-in-out;
+        }
+        .nav:hover::after {
+          width: 100%;
+        }
+        .image-right {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          max-width: 100%;
+          height: auto;
+        }
+        .font {
+          font-family: "Space Mono", monospace;
+          font-optical-sizing: auto;
+          font-style: normal;
+          font-weight: 300;
+        }
+        h1 {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+          border-radius: 20px;
+          border-style: solid;
+          border-color: #ffffff;
+          border-width: 2px;
+          color: #ffffff;
+          font-weight: 500;
+        }
+        .btn-custom:hover {
+          border-color: #00ff22;
+          color: #000000;
+        }
+        .image-container {
+          position: relative;
+          width: 100%;
+        }
+        .image-layer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(76, 76, 76, 0.837);
+          color: #fff;
+          padding: 20px;
+          text-align: center;
+          transition: opacity 0.5s;
+          display: grid;
+          place-items: center;
+          font-size: 22px;
+        }
+        .image-container:hover .image-layer {
+          opacity: 0;
+        }
+        .image-container {
+          position: relative;
+          width: 290px;
+          height: 290px;
+          margin: 50px auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .image-container img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 0px none ;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .image-container::before, .image-container::after {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          border: 3px dotted transparent;
+        }
+        .image-container::before {
+          width: 320px;
+          height: 320px;
+          border-top: 5px dotted #4aff02;
+          border-left: 5px dotted #4aff02;
+          animation: spinReverse 8s linear infinite;
+        }
+        .image-container::after {
+          width: 300px;
+          height: 300px;
+          border-top: 3px dashed #4aff02;
+          border-left: 3px dashed #4aff02;
+          animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes spinReverse {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(-360deg);
+          }
+        }
+        .kontejnerkontakt {
+          position: relative;
+          top:130vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          max-width: 60%;
+        }
+        .paragraf3 {
+          max-width: 450px;
+        }
+        .sivitekst {
+          color: #7a7a7a;
+        }
+        .btn-custom1 {
+          border-radius: 20px;
+          border-style: solid;
+          border-color: #7a7a7a;
+          border-width: 2px;
+          color: #7a7a7a;
+          font-weight: 500;
+        }
+        .btn-custom1:hover {
+          border-color: rgb(26, 255, 0);
+          color: white;
+          background-color: #000000;
+        }
+        .kontenjerlast {
+          position: relative;
+          top: 40vh;
+        }
+        .footer {
+          position:relative;
+          height: 40vh;
+          top: 40vh;
+          margin-top: 0;
+          text-align: center;
+          padding-top: 35px;
+        }
+        .malitekst {
+          font-size: 8px;
+          position: absolute;
+          bottom: 0;
+        }
+        .tekstmali {
+          font-size: 14px;
+        }
+        .fotekst {
+          margin-bottom: 35px;
+          font-size: 18px;
+        }
+        .social {
+          margin-left: 55px;
+        }
+        .link {
+          font-size: 14px;
+          text-decoration: none;
+        }
+        .bijeli:hover {
+          text-decoration: none;
+          transform: scale(1.1);
+        }
+        .section {
+          height: 20vh;
+          padding: 20px;
+          background-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transform: scale(0.9);
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .section.visible {
+          opacity: 1;
+          transform: scale(1);
+        }
+        .fade-in {
+          animation: fadeIn 1.5s forwards;
+        }
+        #counter {
+          font-size: 50px;
+          position: absolute;
+          top: 77%;
+          left:14%;
+          z-index: 1;
+          color: #fff;
+        }
+        #animation {
+          width: 90px;
+          height: 90px;
+          border-top: 5px dotted #4aff02;
+          border-left: 5px dotted #48ff00;
+          animation: spinReverse 8s linear infinite;
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          border: 3px dotted;
+          color: #00ff22;
+          top: 76.5%;
+          left:11.7%;
+        }
+        #counter2 {
+          font-size: 50px;
+          position: absolute;
+          top: 77%;
+          left:30%;
+          z-index: 1;
+          color: #fff;
+        }
+        #animation2 {
+          width: 90px;
+          height: 90px;
+          border-top: 5px dotted #4aff02;
+          border-left: 5px dotted #48ff00;
+          animation: spinReverse 8s linear infinite;
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          border: 3px dotted;
+          color: #00ff22;
+          top: 76.5%;
+          left:27.7%;
+        }
+        #counter3 {
+          font-size: 50px;
+          position: absolute;
+          top: 77%;
+          left:46%;
+          z-index: 1;
+          color: #fff;
+        }
+        #animation3 {
+          width: 90px;
+          height: 90px;
+          border-top: 5px dotted #4aff02;
+          border-left: 5px dotted #48ff00;
+          animation: spinReverse 8s linear infinite;
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          border: 3px dotted;
+          color: #00ff22;
+          top: 76.5%;
+          left:43.7%;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(120px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    /* Stilovi za mobilne uređaje */
+    @media (max-width: 768px) {
+        .naslov1 {
+          top: 30vh !important;
+          left: 38% !important;
+          font-size: 27px !important;
+          max-width: 80vw !important;
+        }
+        #okrugla {
+          max-width: 80vw !important;
+          left: 50vw !important;
+          top:95vh !important;
+        }
+        .para1 {
+          width: 85vw !important;
+          top:55vh !important;
+          left: 50vw !important;
+        }
+        .image-container {
+          width: 270px;
+          height: 270px;
+        }
+        .hero {
+          margin-bottom: 320px !important;
+        }
+        #animation {
+          left:10.3%;
+          top: 130vh !important;
+        }
+        #p1 {
+          left:14vw !important;
+          top: 142vh !important;
+          width: 25vw !important;
+        }
+        #p2 {
+          left:42vw !important;
+          top: 142vh !important;
+          width: 25vw !important;
+        }
+        #p3 {
+          left:75vw !important;
+          top: 142vh !important;
+          width: 25vw !important;
+        }
+        #counter2 {
+          left:48%;
+          top: 130.5vh !important;
+        }
+        #counter {
+          top: 130.5vh !important;
+          left:18.5% !important;
+        }
+        #animation2 {
+          left:40.7%;
+          top: 130vh !important;
+        }
+        #counter3 {
+          left:78.5%;
+          top: 130.5vh !important;
+        }
+        #animation3 {
+          left:71.2%;
+          top: 130vh !important;
+        }
+        .image-container::before {
+          width: 300px;
+          height: 300px;
+          border-top: 5px dotted #4aff02;
+          border-left: 5px dotted #4aff02;
+          animation: spinReverse 8s linear infinite;
+        }
+        .image-container::after {
+          width: 280px;
+          height: 280px;
+          border-top: 3px dashed #4aff02;
+          border-left: 3px dashed #4aff02;
+          animation: spin 10s linear infinite;
+        }
+        .par1 {
+          width: 90vw !important;
+          max-width: 80vw !important;
+          margin-bottom: 65px !important;
+          margin-top: 65px !important;
+          margin-left: -35px !important;
+        }
+        .par2 {
+          width: 90vw !important;
+          max-width: 80vw !important;
+          margin-top: -35px !important;
+          margin-left: -35px !important;
+        }
+        .tekst-a {
+          margin-top: -120px !important;
+          margin-bottom: 25px !important;
+        }
+        #kontusli {
+          width: 92vw !important;
+          max-width: 95vh !important;
+          max-height: 140vh !important;
+          height: 100vh !important;
+        }
+        .kontejnersivi {
+          max-height: 600px !important;
+        }
+        .naslov2 {
+          margin-top: 0px;
+          padding-bottom: 20px;
+        }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .manji {
+          font-size: 12px;
+        }
+        .footer {
+          position:relative;
+          height: 30vh !important;
+          top: 10vh;
+          margin-top: 0;
+          text-align: center;   
+        }
+        .kontejnergalerija {
+          position: relative;
+          top: 115vh;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 auto;
+        }
+        .kontejnergalerija1 {
+          position: relative;
+          top: 110vh;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 auto;
+        }
+        .kontejnerkontakt {
+          position: relative;
+          top:105vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          max-width: 60%;
+        }
+        .kontenjerlast {
+          position: relative;
+          top: 10vh
+        }
+        .naslov2 {
+          left: 10vw !important;
+          top: 45vh !important;
+        }
+        #allrights {
+          position: relative;
+          top: 220px;
+          left: 23vw;
+        }
+        #cookies {
+          position: relative;
+          top: 90px;
+          left: 23vw;
+        }
+        .strelica1 {
+          top: -20vh !important;
+        }
+        #personal {
+          position: relative;
+          top:5px;
+          left: 23vw;
+        }
+        .btn-custom1 {
+          height: 40px;
+          margin-top:10px !important;
+          margin-bottom:20px !important;
+          margin-left: -350px !important;
+        }
+        .btn-custom1:hover {
+          border-color: rgb(26, 255, 0);
+          color: white;
+          background-color: #000000;
+        }
+        .paragraf3 {
+          margin-top: 20px;
+        }
+        .kontejnerteksta1 {
+          position: flex;
+          flex-direction: column;
+          align-items: center !important;
+        }
+        h2 {
+          margin-top: 50px;
+          margin-bottom:20px !important;
+        }
+        .kontejnerbezmargina {
+          position: flex;
+          align-items: center;
+        }
+        .slikaograde {
+          max-width: 100vw !important;
+          max-height: none !important;
+          margin-bottom: 25px;
+        }
+        .navbarNav {
+          transform: translateX(60vw); 
+        }
+        .navbar {
+          position: relative;
+          left: 10px;
+        } 
+    }
+    /* Stilovi za tablet uređaje */
+    @media (min-width: 768px) and (max-width: 992px) {
+        .naslov1 {
+          left: 38% !important;
+          font-size: 28px;
+          top: 25vh !important;
+        }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .manji {
+          font-size: 12px;
+        }
+        .kontejnergalerija {
+          position: relative;
+          top: 95vh;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 auto;
+        }
+        .kontejnerkontakt {
+          position: relative;
+          top:100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          max-width: 60%;
+        }
+        .kontenjerlast {
+          position: relative;
+          top: 10vh;
+        }
+        .footer {
+          position:relative;
+          height: 50vh !important;
+          top: 10vh;
+          margin-top: 0;
+          text-align: center;
+        }
+        .btn-custom1 {
+          height: 40px;
+          margin-top:10px !important;
+          margin-bottom:20px !important;
+          margin-left: -350px !important;
+        }
+        .btn-custom1:hover {
+          border-color: rgb(26, 255, 0);
+          color: white;
+          background-color: #000000;
+        }
+        .paragraf3 {
+          margin-top: 20px;
+        }
+        .kontejnerteksta1 {
+          position: flex;
+          flex-direction: column;
+          align-items: center !important;
+        }
+        h2 {
+          margin-top: 50px;
+          margin-bottom:20px !important;
+        }
+        .kontejnerbezmargina {
+          position: flex;
+          align-items: center;
+        }
+        .section {
+          padding: 0;
+          height:0;
+        }
+        #animation {
+          left:10.3%;
+        }
+        #p1 {
+          left:8vw !important;
+        }
+        #p2 {
+          left:37vw !important;
+        }
+        #p3 {
+          left:70vw !important;
+        }
+        #counter2 {
+          left:44.5%;
+        }
+        #animation2 {
+          left:40.7%;
+        }
+        #counter3 {
+          left:75%;
+        }
+        #animation3 {
+          left:71.2%;
+        }
+        .para1 {
+          top: 52vh !important;
+        }
+        #personal {
+          left: 50vh !important;
+          top:40vh !important;
+        }
+        #cookies {
+          left: 80vh !important;
+          top:40vh !important;
+        }
+        #allrights {
+          top:38vh !important;
+        }
+        .strelica1 {
+          left:55vw !important;
+          top: 17vh !important;
+        }
+        .tekst-a {
+          top: 62vh !important;
+          left: 15vh !important;
+        }  
+    }
+    </style>
+</head>
+  <body>
+    <header class="container-fluid py-3" id="vrh" style="background-color:rgb(0, 0, 0);">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand " href="index.html">
+            <img src="logo.png" alt="Logo"  style="width:290px; height:40px; margin-top:22px"  >
+          </a>
+          <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span id="kol" class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse navbarNav" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto font">
+              <li class="nav-item">
+                <a class="nav" style="font-size: 18px; margin-right: 45px;top:25px;" href="index.html">POČETNA</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
+    <section class="hero" style="margin-bottom: 50px;">
+      <h1 class="text-white naslov1 font" style="font-size: 36px; position: absolute; top: 41%; left: 28%; transform: translate(-50%, -50%); z-index:1;">Projekti <span style="color: #4aff02;"> - Loren Bažon</span></h1>
+      <p class="font para1" style="font-size: 16px; position: absolute; top: 59%; left: 31%; transform: translate(-50%, -50%); z-index:1;width:40vw;color:white">Na ovoj stranici imate priliku upoznati se s mojim radom i projektima koji su rezultat strasti prema tehnologiji i stalnog učenja. Kao student informatike, s velikim entuzijazmom pristupam svakom izazovu, a svaki projekt predstavlja korak naprijed u mom profesionalnom razvoju.</p>
+      <img src="6.jpg" alt="Hero Image" class="img-fluid w-100" style="width: 100%; height: 80vh; object-fit: cover;">
+      <div class="image-container" id="okrugla" style="position: absolute; top: 45%; left: 71%; transform: translate(-50%, -50%); z-index:1;">
+        <img src="8.png" alt="Okrugla slika">
+      </div>
+      <div id="counter">1</div>
+      <div id="animation"></div>
+      <p id="p1" style="position: absolute; top:92%;left:10.5%;color:#fff">izrađeni projekti</p>
+      <div id="counter2">1</div>
+      <div id="animation2"></div>
+      <p id="p2" style="position: absolute; top:92%;left:25%;color:#fff">savladana tehnologija</p>
+      <div id="counter3">1</div>
+      <div id="animation3"></div>
+      <p id="p3" style="position: absolute; top:92%;left:43%;color:#fff">godine iskustva</p>
+    </section>
+
+    
+    <div class="container kontejnerteksta1 text-center font">
+      <h2 class="text-center my-5 font section" style="color: #ffffff;" >RENT-A-BEAST</h2> <hr style="color: #ffffff;">
+      <p class="text-center paragraf3 " style="color: #ffffff;">Ova web stranica za RENT-A-BEAST predstavlja rezultat mog rada i strasti prema web razvoju. Stranicu sam kreirao od dizajna do realizacije s ciljem učenja, koristeći moderni dizajn, intuitivnu navigaciju i responzivnost za besprijekorno korisničko iskustvo. 
+      </p>
+      <button onclick="window.location.href='https://lorenbazon96.github.io/RentABeast/'" class="btn btn-custom1" style="width: 190px; margin-top:-250px;margin-right:-350px">POSJETI STRANICU</button>
+    </div>
+
+    <div class="container-fluid kontejnerbezmargina prvi">
+      <div class="row gx-4">
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="10.png" alt="img" class="img-fluid slikaograde" style="margin-bottom: 25px; margin-left:4vw;max-width:45vw;">
+          <img src="11.png" alt="img2" class="img-fluid slikaograde" style="max-width:49vw;">
+        </div>
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="12.png" alt="img3" class="img-fluid slikaograde" style=" max-height:47.3vw; ">
+        </div>
+    
+      </div>
+    </div>
+
+    <div class="container kontejnerteksta1 text-center font">
+      <h2 class="text-center my-5 font section" style="color: #ffffff;" >BRUNCH</h2> <hr style="color: #ffffff;">
+      <p class="text-center paragraf3 " style="color: #ffffff;">Ova web stranica za Brunch  realizirana od strane mene, s fokusom na user-friendly sučelja koje odražava toplinu i ugodnu atmosferu idealnog mjesta za jelo. Dizajn je responzivan, moderan, s pažljivo odabranim elementima koji ističu kvalitetu i autentičnost ponude. 
+      </p>
+      <button onclick="window.location.href='https://lorenbazon96.github.io/Brunch/'" class="btn btn-custom1" style="width: 190px; margin-top:-250px;margin-right:-350px">POSJETI STRANICU</button>
+    </div>
+
+    <div class="container-fluid kontejnerbezmargina prvi">
+      <div class="row gx-4">
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="14.png" alt="img" class="img-fluid slikaograde" style="margin-bottom: 25px; margin-left:4vw;max-width:45vw;">
+          <img src="15.png" alt="img2" class="img-fluid slikaograde" style="max-width:49vw;">
+        </div>
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="16.png" alt="img3" class="img-fluid slikaograde" style=" max-height:47.3vw; ">
+        </div>
+    
+      </div>
+    </div>
+
+    <div class="container kontejnerteksta1 text-center font">
+      <h2 class="text-center my-5 font section" style="color: #ffffff;" >ZyemiraConcert</h2> <hr style="color: #ffffff;">
+      <p class="text-center paragraf3 " style="color: #ffffff;">Ova web stranica za ZyemiraConcert rezultat je mog rada. Realizirao sam je s naglaskom na dinamičan izgled i jednostavnu navigaciju, kako bi posjetitelji mogli brzo pronaći informacije o nadolazećim koncertima, kupiti ulaznice i uroniti u svijet glazbe. Svaki element stranice pažljivo je oblikovan kako bi se stvorilo iskustvo koje je istovremeno vizualno privlačno i funkcionalno, savršeno za ljubitelje glazbe. Stranica nije rasponzivna.
+      </p>
+      <button onclick="window.location.href='https://lorenbazon96.github.io/ZyemiraConcert/'" class="btn btn-custom1" style="width: 190px; margin-top:-250px;margin-right:-350px">POSJETI STRANICU</button>
+    </div>
+
+    <div class="container-fluid kontejnerbezmargina prvi">
+      <div class="row gx-4">
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="17.png" alt="img" class="img-fluid slikaograde" style="margin-bottom: 25px; margin-left:4vw;max-width:45vw;">
+          <img src="18.png" alt="img2" class="img-fluid slikaograde" style="max-width:49vw;">
+        </div>
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="19.png" alt="img3" class="img-fluid slikaograde" style=" max-height:47.3vw; ">
+        </div>
+    
+      </div>
+    </div>
+
+    <div class="container kontejnerteksta1 text-center font">
+      <h2 class="text-center my-5 font section" style="color: #ffffff;" >Portfolio Loren</h2> <hr style="color: #ffffff;">
+      <p class="text-center paragraf3 " style="color: #ffffff;">Ova web stranica dizajnirana je i realizirana za vlastite potrebe. Cilj dizajna ove stranice je jednostavnost, elegancija i profesionalnost uz naglasak na kvalitetu. Stranica je rasponzivna za tablete i mobilne uređaje i koriste se animacije za dodavanje efekata.
+      </p>
+      <button onclick="window.location.href='https://lorenbazon96.github.io/ZyemiraConcert/'" class="btn btn-custom1" style="width: 190px; margin-top:-250px;margin-right:-350px">POSJETI STRANICU</button>
+    </div>
+
+    <div class="container-fluid kontejnerbezmargina prvi">
+      <div class="row gx-4">
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="20.png" alt="img" class="img-fluid slikaograde" style="margin-bottom: 25px; margin-left:4vw;max-width:45vw;">
+          <img src="21.png" alt="img2" class="img-fluid slikaograde" style="max-width:49vw;">
+        </div>
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="22.png" alt="img3" class="img-fluid slikaograde" style=" max-height:47.3vw; ">
+        </div>
+    
+      </div>
+    </div>
+
+    <div class="container kontejnerteksta1 text-center font">
+      <h2 class="text-center my-5 font section" style="color: #ffffff;" >ROAR TRADE academy</h2> <hr style="color: #ffffff;">
+      <p class="text-center paragraf3 " style="color: #ffffff;">Ova web stranica dizajnirana je i realizirana za potrebe studiranja. Izrađena je u Wordpress-u i sav materijal na stranici samostalno sam napravio putem alata koji su navedeni na stranici. Stranica je rasponzivna za tablete i mobilne uređaje. 
+      </p>
+      <button onclick="window.location.href='https://lorenbazonn.wordpress.com/'" class="btn btn-custom1" style="width: 190px; margin-top:-250px;margin-right:-350px">POSJETI STRANICU</button>
+    </div>
+
+    <div class="container-fluid kontejnerbezmargina prvi">
+      <div class="row gx-4">
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="23.png" alt="img" class="img-fluid slikaograde" style="margin-bottom: 25px; margin-left:4vw;max-width:45vw;">
+          <img src="24.png" alt="img2" class="img-fluid slikaograde" style="max-width:49vw;">
+        </div>
+    
+        <div class="col-md-6 col-sm-12">
+          <img src="25.png" alt="img3" class="img-fluid slikaograde" style=" max-height:47.3vw; ">
+        </div>
+    
+      </div>
+    </div>
+
+      <section class="kontenjerlast">
+        <h1 class="text-white naslov1 font section tekst-a" style="font-size: 36px; position: absolute; top: 40vh; left: 10%; transform: translate(-50%, -50%); z-index:1;">Strast i posvećenost u<br> svakom detalju.</h1>
+        <img src="1.jpg" alt="Image" class="img-fluid w-100" style="width: 100%; height: 40vh; object-fit: cover;">
+      </section>
+
+      <footer class="container-fluid text-white footer" style="background-color: #000000;">
+        <div class="container foter">
+          <div class="row">
+            <div class="col-md-3 col-sm-12">
+              <br>
+              <br>
+              <br>
+              <p class="mt-3 malitekst font" id="allrights" style="text-align: left;">© 2023 | All Rights Reserved</p>
+            </div>
+            <div class="col-md-3 col-sm-12 font">
+            </div>
+            <div class="col-md-2 col-sm-12 font" style="height: 100px;">
+              <br>
+              <br>
+              <br>
+              <p id="cookies" class="malitekst font" style="text-align: left;">Cookies policy</p>
+            </div>
+            <div class="col-md-2 col-sm-12" style="height: 100px;">
+              <br>
+              <br>
+              <br>
+              <p class="malitekst" id="personal" style="text-align: left;">Personal Data Protection</p>
+            </div>
+            <a class="col-md-2 col-sm-12 strelica1" href="#vrh" >
+              <i class="fa-solid fa-arrow-up-long section " style="font-size:100px ;" title="Idi na vrh!"></i>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        document.getElementById('openPdfBtn').addEventListener('click', function() {
+            window.open('CV.pdf', '_blank');
+        });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const sections = document.querySelectorAll('.section');
+          
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible', 'fade-in');
+                  } else {
+                      entry.target.classList.remove('visible', 'fade-in');
+                  }
+              });
+          }, {
+              threshold: 0.1 
+          });
+          
+          sections.forEach(section => {
+              observer.observe(section);
+          });
+      });
+    </script>
+    <script>
+        let counter = 1;
+        let counterElement = document.getElementById('counter');
+        
+        function updateCounter() {
+            if (counter <= 5) {
+                counterElement.textContent = counter;
+                counter++;
+                setTimeout(updateCounter, 450);
+            }
+        }
+        
+        updateCounter();
+    </script>
+    <script>
+      let counter2 = 1;
+      let counter2Element = document.getElementById('counter2');
+      
+      function updateCounter2() {
+          if (counter2 <= 9) {
+              counter2Element.textContent = counter2;
+              counter2++;
+              setTimeout(updateCounter2, 450);
+          }
+      }
+      
+      updateCounter2();
+  </script>
+  <script>
+    let counter3 = 1;
+    let counter3Element = document.getElementById('counter3');
+    
+    function updateCounter3() {
+        if (counter3 <= 1) {
+            counter3Element.textContent = counter3;
+            counter3++;
+            setTimeout(updateCounter3, 450); 
+        }
+    }
+    
+    updateCounter3();
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
