@@ -105,6 +105,29 @@
           transform: scale(1.1); 
           transition: all 0.3s ease;
         }
+
+        .social-buttons {
+          position: fixed; /* Fiksna pozicija */
+          bottom: 60px; /* Udaljenost od donjeg dela ekrana (iznad gumba) */
+          right: 20px; /* Udaljenost od desnog dela ekrana */
+          display: flex; /* Koristi flexbox za horizontalno poravnavanje */
+          flex-direction: column; /* Vertikalno poravnanje ikona */
+          gap: 10px; /* Razmak između ikona */
+          z-index: 1000; /* Osigurava da su ikone iznad drugih elemenata */
+        }
+
+        .imate {
+          position: fixed;
+          right: 80px;
+          bottom: 70px;
+          font-weight: 600;
+          border: solid 1px;
+          border-color: rgb(255 255 255);
+          background-color: rgb(255 255 255);
+          border-radius: 5px;
+          padding: 3px;
+          color: rgb(127, 127, 127);
+        }
         .btn-custom {
             border-radius: 20px;
             border-style: solid;
@@ -723,6 +746,15 @@
         </div>
       </footer>
 
+    <div class="social-buttons">
+    	<a href="https://wa.me/385998039890" class="social-icon" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    	<span class="imate">
+    	imate pitanje?
+    	</span>
+    </div>
+    
       <script>
         document.getElementById('openPdfBtn').addEventListener('click', function() {
             window.open('https://raw.githubusercontent.com/lorenbazon96/Portfolio/main/CV.pdf', '_blank');
