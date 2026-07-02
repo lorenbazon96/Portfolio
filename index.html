@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loren Bažon | Full-Stack Web Developer</title>
+
+    <meta name="description" content="Portfolio of Loren Bažon - Full-Stack Web Developer and founder of ZONIUM. Modern web applications, business systems, REST APIs and database-driven digital products.">
+    <meta name="keywords" content="Loren Bažon, portfolio, full-stack developer, ZONIUM, web applications, PHP, Vue.js, Node.js, MySQL, MongoDB">
+    <meta name="author" content="Loren Bažon">
+    <meta property="og:title" content="Loren Bažon | Full-Stack Web Developer">
+    <meta property="og:description" content="Elegant web applications, business systems and digital products built with clean architecture and a strong product mindset.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:type" content="website">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="ico.ico">
+
+    <style>
+      :root {
+        --bg: #070806;
+        --panel: rgba(18, 20, 16, 0.78);
+        --panel-strong: #10120f;
+        --text: #f7f3e8;
+        --muted: #b7b0a0;
+        --accent: #d8c48f;
+        --accent-2: #98d77a;
+        --line: rgba(216, 196, 143, 0.18);
+        --shadow: 0 28px 90px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 18% 8%, rgba(216, 196, 143, 0.13), transparent 28rem),
+          radial-gradient(circle at 82% 2%, rgba(152, 215, 122, 0.10), transparent 24rem),
+          linear-gradient(180deg, #050504 0%, var(--bg) 48%, #020202 100%);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background-image:
+          linear-gradient(rgba(216,196,143,0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(216,196,143,0.028) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 75%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .section-pad {
+        padding: 110px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 18px;
+        color: var(--accent);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 36px;
+        height: 2px;
+        background: var(--accent);
+        box-shadow: 0 0 18px rgba(216, 196, 143, 0.35);
+      }
+
+      .section-title {
+        max-width: 760px;
+        margin-bottom: 24px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2rem, 5vw, 4.5rem);
+        font-weight: 700;
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+      }
+
+      .lead-text {
+        max-width: 720px;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.8;
+      }
+
+      .glass {
+        border: 1px solid var(--line);
+        background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(216,196,143,0.025));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .navbar-wrap {
+        position: fixed;
+        top: 16px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+
+      .navbar {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(7, 8, 6, 0.76);
+        box-shadow: 0 18px 70px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(18px);
+      }
+
+      .navbar-brand img {
+        width: 190px;
+        max-height: 34px;
+        object-fit: contain;
+      }
+
+      .navbar-toggler {
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 999px;
+        color: var(--text);
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.18rem rgba(216, 196, 143, 0.18);
+      }
+
+      .navbar-toggler-icon {
+        filter: invert(1);
+      }
+
+      .nav-link {
+        position: relative;
+        color: rgba(244, 255, 247, 0.78);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: var(--accent);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 150px 0 90px;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(4, 5, 4, 0.97) 0%, rgba(4, 5, 4, 0.78) 52%, rgba(4, 5, 4, 0.42) 100%),
+          url("6.jpg") center/cover no-repeat;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 220px;
+        z-index: -1;
+        background: linear-gradient(180deg, transparent, var(--bg));
+      }
+
+      .hero-title {
+        max-width: 980px;
+        margin: 0 0 28px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(3rem, 8vw, 7.6rem);
+        font-weight: 700;
+        line-height: 0.92;
+        letter-spacing: -0.075em;
+      }
+
+      .hero-title .outline {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(247, 243, 232, 0.48);
+      }
+
+      .hero-copy {
+        max-width: 720px;
+        color: #ded7c8;
+        font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+        line-height: 1.75;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .btn-neon,
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 52px;
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .btn-neon {
+        color: #0d0d09;
+        background: var(--accent);
+        box-shadow: 0 16px 38px rgba(216, 196, 143, 0.18);
+      }
+
+      .btn-ghost {
+        border: 1px solid rgba(255,255,255,0.18);
+        color: var(--text);
+        background: rgba(255,255,255,0.035);
+      }
+
+      .btn-neon:hover,
+      .btn-ghost:hover {
+        transform: translateY(-3px);
+        border-color: rgba(216, 196, 143, 0.7);
+        box-shadow: 0 18px 42px rgba(216, 196, 143, 0.12);
+      }
+
+      .profile-card {
+        position: relative;
+        max-width: 420px;
+        margin-left: auto;
+        padding: 18px;
+        border-radius: 36px;
+      }
+
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        z-index: -1;
+        border-radius: inherit;
+        background: linear-gradient(145deg, rgba(216,196,143,0.72), rgba(152,215,122,0.28), transparent 62%);
+      }
+
+      .profile-card img {
+        width: 100%;
+        aspect-ratio: 1 / 1.08;
+        border-radius: 28px;
+        object-fit: cover;
+      }
+
+      .profile-badge {
+        position: absolute;
+        left: -22px;
+        bottom: 36px;
+        max-width: 250px;
+        padding: 16px 18px;
+        border-radius: 24px;
+      }
+
+      .profile-badge strong {
+        display: block;
+        color: var(--accent);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.45rem;
+        line-height: 1;
+      }
+
+      .profile-badge span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .hero-socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .social-link {
+        width: 46px;
+        height: 46px;
+        display: inline-grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--text);
+        background: rgba(255,255,255,0.045);
+        transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .social-link:hover {
+        transform: translateY(-4px) scale(1.04);
+        color: var(--accent);
+        border-color: rgba(216, 196, 143, 0.62);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        background: var(--line);
+      }
+
+      .stat-item {
+        padding: 30px;
+        background: rgba(7, 10, 10, 0.88);
+      }
+
+      .stat-item strong {
+        display: block;
+        color: var(--accent);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 1;
+      }
+
+      .stat-item span {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .service-card,
+      .project-card,
+      .timeline-item,
+      .contact-card {
+        border-radius: 30px;
+      }
+
+      .service-card,
+      .project-card {
+        position: relative;
+        min-height: 250px;
+        padding: 28px;
+        overflow: hidden;
+      }
+
+      .service-card::after,
+      .project-card::after {
+        content: "";
+        position: absolute;
+        right: -70px;
+        bottom: -70px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: rgba(216, 196, 143, 0.10);
+        filter: blur(4px);
+      }
+
+      .service-card i {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 30px;
+        border-radius: 18px;
+        color: #11100b;
+        background: var(--accent);
+        font-size: 1.4rem;
+      }
+
+      .service-card h3,
+      .project-card h3,
+      .timeline-item h3,
+      .contact-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+      }
+
+      .service-card p,
+      .project-card p,
+      .timeline-item p,
+      .contact-card p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .project-card.featured {
+        grid-column: span 2;
+        min-height: 320px;
+        background:
+          linear-gradient(130deg, rgba(10, 10, 8, 0.96), rgba(10, 10, 8, 0.74)),
+          url("9.jpg") center/cover no-repeat;
+      }
+
+      .project-link {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+        color: var(--accent);
+        font-weight: 900;
+      }
+
+      .project-link:hover {
+        color: var(--text);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 6px 11px;
+        border: 1px solid rgba(216, 196, 143, 0.32);
+        border-radius: 999px;
+        color: #f0e5bf;
+        background: rgba(216, 196, 143, 0.08);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .tech-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .tech-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 17px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #e7f5eb;
+        background: rgba(255, 255, 255, 0.045);
+        font-weight: 800;
+      }
+
+      .tech-pill i {
+        color: var(--accent);
+      }
+
+      .split-panel {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-visual {
+        position: relative;
+        min-height: 560px;
+        overflow: hidden;
+        border-radius: 36px;
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62)),
+          url("1.jpg") center/cover no-repeat;
+      }
+
+      .about-visual .float-box {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        max-width: 330px;
+        padding: 22px;
+        border-radius: 26px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 24px 24px 24px 62px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 26px;
+        top: 30px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 24px rgba(216, 196, 143, 0.42);
+      }
+
+      .timeline-item small {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .contact-card {
+        padding: 44px;
+      }
+
+      .contact-line {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+        color: #eaf7ee;
+      }
+
+      .contact-line i {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        color: #11100b;
+        background: var(--accent);
+      }
+
+      footer {
+        padding: 42px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 991px) {
+        .navbar {
+          border-radius: 28px;
+        }
+
+        .navbar-collapse {
+          padding: 12px 0 8px;
+        }
+
+        .hero {
+          padding-top: 130px;
+        }
+
+        .profile-card {
+          margin: 44px auto 0;
+        }
+
+        .stats-grid,
+        .card-grid,
+        .split-panel {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .project-card.featured {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .section-pad {
+          padding: 78px 0;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .btn-neon,
+        .btn-ghost {
+          width: 100%;
+        }
+
+        .profile-badge {
+          left: 12px;
+          right: 12px;
+          bottom: 18px;
+          max-width: none;
+        }
+
+        .stats-grid,
+        .card-grid,
+        .split-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .project-card.featured {
+          grid-column: span 1;
+        }
+
+        .about-visual {
+          min-height: 430px;
+        }
+
+        .contact-card {
+          padding: 28px;
+        }
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar-wrap">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg px-3 py-2">
+          <a class="navbar-brand" href="#top" aria-label="Loren Bažon portfolio">
+            <img src="logo.png" alt="Loren Bažon logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+              <div class="eyebrow reveal">Full-Stack Web Developer</div>
+              <h1 class="hero-title reveal">Elegant digital products for ambitious businesses.</h1>
+              <p class="hero-copy reveal">
+                I design and build modern web applications, business systems and refined websites with a focus on clean architecture, performance and user experience.
+              </p>
+              <div class="hero-actions reveal">
+                <a class="btn-neon" href="#projects"><i class="fa-solid fa-arrow-right"></i> View projects</a>
+                <a class="btn-ghost" href="mailto:info@zonium.hr"><i class="fa-regular fa-paper-plane"></i> Start a project</a>
+              </div>
+              <div class="hero-socials reveal" aria-label="Social links">
+                <a class="social-link" href="https://www.linkedin.com/in/loren-ba%C5%BEon-4b2682309/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a class="social-link" href="https://github.com/lorenbazon96" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a class="social-link" href="mailto:loren.bazon@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="profile-card glass reveal">
+                <img src="8.png" alt="Loren Bažon">
+                <div class="profile-badge glass">
+                  <strong>ZONIUM</strong>
+                  <span>Founder · custom web applications · business software · digital products</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="stats-grid reveal">
+          <div class="stat-item">
+            <strong>40+</strong>
+            <span>digital products, websites and custom business solutions</span>
+          </div>
+          <div class="stat-item">
+            <strong>20+</strong>
+            <span>technologies and tools in my development workflow</span>
+          </div>
+          <div class="stat-item">
+            <strong>API</strong>
+            <span>backend systems, authentication and database design</span>
+          </div>
+          <div class="stat-item">
+            <strong>UX</strong>
+            <span>interfaces built to feel clean, fast and intuitive</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="about">
+        <div class="container split-panel">
+          <div class="about-visual glass reveal">
+            <div class="float-box glass">
+              <h3>Product-focused development</h3>
+              <p class="mb-0">I care about the details that make software easier to use, easier to maintain and more valuable over time.</p>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="eyebrow">About</div>
+            <h2 class="section-title">I turn ideas into polished, reliable digital products.</h2>
+            <p class="lead-text">
+              I'm Loren Bažon, a Full-Stack Web Developer from Croatia and the founder of ZONIUM, a digital studio focused on custom web applications, business software and modern websites.
+            </p>
+            <p class="lead-text">
+              My work spans business management systems, custom CMS platforms, restaurant and tourism websites, administration dashboards, REST APIs and tailored applications that solve real client needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="services">
+        <div class="container">
+          <div class="eyebrow reveal">Services</div>
+          <h2 class="section-title reveal">From elegant websites to complete business systems.</h2>
+          <div class="card-grid mt-5">
+            <article class="service-card glass reveal">
+              <i class="fa-solid fa-code"></i>
+              <h3>Custom web applications</h3>
+              <p>Tailored applications with user roles, administration panels, dashboards, APIs and scalable structure.</p>
+            </article>
+            <article class="service-card glass reveal">
+              <i class="fa-solid fa-chart-line"></i>
+              <h3>Business systems</h3>
+              <p>CRM, ERP and dashboard solutions for processes, data overview, orders, clients and internal operations.</p>
+            </article>
+            <article class="service-card glass reveal">
+              <i class="fa-solid fa-globe"></i>
+              <h3>Modern websites</h3>
+              <p>Responsive websites with refined visual identity, SEO-friendly structure, fast loading and simple maintenance.</p>
+            </article>
+            <article class="service-card glass reveal">
+              <i class="fa-solid fa-server"></i>
+              <h3>REST API development</h3>
+              <p>Backend services, authentication, file uploads, email automation and integrations with external systems.</p>
+            </article>
+            <article class="service-card glass reveal">
+              <i class="fa-solid fa-database"></i>
+              <h3>Database design</h3>
+              <p>MySQL and MongoDB data modeling with performance, security and future system growth in mind.</p>
+            </article>
+            <article class="service-card glass reveal">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <h3>Maintenance & improvement</h3>
+              <p>Continuous upgrades, optimization, deployment, refactoring and technical support for existing projects.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="projects">
+        <div class="container">
+          <div class="eyebrow reveal">Featured projects</div>
+          <h2 class="section-title reveal">Selected work with real business purpose.</h2>
+          <div class="card-grid mt-5">
+            <article class="project-card featured glass reveal">
+              <div>
+                <span class="tag">Manufacturing</span>
+                <h3 class="display-5 mt-4">DMF</h3>
+                <p>A business application for digitizing manufacturing processes, improving data control and creating clearer production workflows.</p>
+                <a class="project-link" href="https://dmf-production.vercel.app/" target="_blank" rel="noopener">Visit project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+              <div class="tag-list">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">JWT</span>
+                <span class="tag">REST API</span>
+              </div>
+            </article>
+            <article class="project-card glass reveal">
+              <div>
+                <span class="tag">Restaurant</span>
+                <h3>Old River Restaurant</h3>
+                <p>A refined restaurant website with responsive design, clear presentation and SEO-friendly structure.</p>
+                <a class="project-link" href="https://restoranoldriver.com.hr/hr/home" target="_blank" rel="noopener">Visit website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+              <div class="tag-list"><span class="tag">CMS</span><span class="tag">SEO</span><span class="tag">Responsive</span></div>
+            </article>
+            <article class="project-card glass reveal">
+              <div>
+                <span class="tag">Business</span>
+                <h3>Martis</h3>
+                <p>A professional business website with clean structure, custom administration and search engine optimization.</p>
+                <a class="project-link" href="https://martis.com.hr/hr/home" target="_blank" rel="noopener">Visit website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+              <div class="tag-list"><span class="tag">Admin panel</span><span class="tag">SEO</span><span class="tag">Web</span></div>
+            </article>
+            <article class="project-card glass reveal">
+              <div>
+                <span class="tag">Studio</span>
+                <h3>ZONIUM</h3>
+                <p>The official ZONIUM website, built to present services, projects and custom digital solutions.</p>
+                <a class="project-link" href="https://zonium.hr/hr/home" target="_blank" rel="noopener">Visit website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+              <div class="tag-list"><span class="tag">Brand</span><span class="tag">Services</span><span class="tag">Portfolio</span></div>
+            </article>
+            <article class="project-card glass reveal">
+              <div>
+                <span class="tag">More</span>
+                <h3>Additional work</h3>
+                <p>Reservation systems, tourism websites, CMS platforms, API integrations, portfolio websites and SEO-focused projects.</p>
+              </div>
+              <div class="tag-list"><span class="tag">Dashboards</span><span class="tag">Bookings</span><span class="tag">API</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="stack">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-5 reveal">
+              <div class="eyebrow">Technologies</div>
+              <h2 class="section-title">A practical stack for fast, stable delivery.</h2>
+              <p class="lead-text">I work across frontend, backend, APIs and databases, using tools that keep projects clean, maintainable and production-ready.</p>
+            </div>
+            <div class="col-lg-7 reveal">
+              <div class="tech-cloud">
+                <span class="tech-pill"><i class="fa-brands fa-html5"></i>HTML5</span>
+                <span class="tech-pill"><i class="fa-brands fa-css3-alt"></i>CSS3</span>
+                <span class="tech-pill"><i class="fa-brands fa-js"></i>JavaScript</span>
+                <span class="tech-pill"><i class="fa-brands fa-vuejs"></i>Vue.js</span>
+                <span class="tech-pill"><i class="fa-brands fa-bootstrap"></i>Bootstrap</span>
+                <span class="tech-pill"><i class="fa-solid fa-wind"></i>Tailwind CSS</span>
+                <span class="tech-pill"><i class="fa-brands fa-php"></i>PHP</span>
+                <span class="tech-pill"><i class="fa-brands fa-node-js"></i>Node.js</span>
+                <span class="tech-pill"><i class="fa-solid fa-route"></i>Express.js</span>
+                <span class="tech-pill"><i class="fa-solid fa-key"></i>JWT</span>
+                <span class="tech-pill"><i class="fa-solid fa-database"></i>MySQL</span>
+                <span class="tech-pill"><i class="fa-solid fa-leaf"></i>MongoDB</span>
+                <span class="tech-pill"><i class="fa-brands fa-git-alt"></i>Git</span>
+                <span class="tech-pill"><i class="fa-brands fa-github"></i>GitHub</span>
+                <span class="tech-pill"><i class="fa-solid fa-paper-plane"></i>Postman</span>
+                <span class="tech-pill"><i class="fa-solid fa-cloud"></i>Railway / Vercel</span>
+                <span class="tech-pill"><i class="fa-brands fa-figma"></i>Figma</span>
+                <span class="tech-pill"><i class="fa-brands fa-docker"></i>Docker</span>
+                <span class="tech-pill"><i class="fa-solid fa-cube"></i>CAD / BIM</span>
+                <span class="tech-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="approach">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-5 reveal">
+              <div class="eyebrow">Approach</div>
+              <h2 class="section-title">Clean execution, thoughtful details and long-term value.</h2>
+              <p class="lead-text">I build software with a product mindset: clear user flows, structured data, maintainable code and interfaces that feel calm, precise and professional.</p>
+            </div>
+            <div class="col-lg-7">
+              <div class="timeline">
+                <article class="timeline-item glass reveal">
+                  <small>01</small>
+                  <h3>Discovery & structure</h3>
+                  <p>I start by understanding the business goal, user needs and core data model so the solution is simple before it becomes complex.</p>
+                </article>
+                <article class="timeline-item glass reveal">
+                  <small>02</small>
+                  <h3>Design & development</h3>
+                  <p>Frontend, backend, database and administration features are developed as one coherent product experience.</p>
+                </article>
+                <article class="timeline-item glass reveal">
+                  <small>03</small>
+                  <h3>Optimization & launch</h3>
+                  <p>Before launch, I refine performance, responsiveness, SEO basics, security and the details that make the product feel finished.</p>
+                </article>
+                <article class="timeline-item glass reveal">
+                  <small>04</small>
+                  <h3>Maintenance & growth</h3>
+                  <p>After delivery, the product can continue evolving through improvements, integrations and new features as business needs grow.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="education">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6 reveal">
+              <div class="contact-card glass h-100">
+                <div class="eyebrow">Education</div>
+                <h2 class="section-title fs-1">Bachelor of Informatics</h2>
+                <p>Juraj Dobrila University of Pula, Faculty of Informatics · 2023 — Present</p>
+                <p>Focused on software engineering, databases, object-oriented programming, web technologies and information systems.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 reveal">
+              <div class="contact-card glass h-100">
+                <div class="eyebrow">Interests</div>
+                <h2 class="section-title fs-1">Software, architecture & digital engineering</h2>
+                <p>I am continuously improving my knowledge of scalable application development, cloud deployment, CAD/BIM workflows and business digitalization.</p>
+                <p>Croatian: native · English: B2 · Italian: A1.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad" id="contact">
+        <div class="container">
+          <div class="contact-card glass reveal">
+            <div class="row g-5 align-items-center">
+              <div class="col-lg-7">
+                <div class="eyebrow">Let's build something great</div>
+                <h2 class="section-title">Have an idea? Let's turn it into a refined digital product.</h2>
+                <p class="lead-text mb-0">If you need a custom web application, a modern website or a complete business solution, I'm open to focused collaborations and ambitious projects.</p>
+              </div>
+              <div class="col-lg-5">
+                <a class="contact-line" href="mailto:loren.bazon@gmail.com"><i class="fa-solid fa-envelope"></i><span>loren.bazon@gmail.com</span></a>
+                <a class="contact-line" href="mailto:info@zonium.hr"><i class="fa-regular fa-envelope"></i><span>info@zonium.hr</span></a>
+                <a class="contact-line" href="https://www.linkedin.com/in/loren-ba%C5%BEon-4b2682309/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
+                <a class="contact-line" href="https://github.com/lorenbazon96" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+                <div class="contact-line"><i class="fa-solid fa-location-dot"></i><span>Croatia</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+        <span>© 2026 Loren Bažon. All rights reserved.</span>
+        <a href="#top" class="accent fw-bold">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
